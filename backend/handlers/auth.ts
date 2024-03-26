@@ -9,6 +9,9 @@ const auth = async (req: any, res: Response, next: NextFunction) => {
   // const auth_id = req.headers.authorization.split(" ")[1];
 
   const accessToken = req.headers.authorization.split(" ")[1];
+  console.log("accessToken");
+
+  console.log(accessToken);
 
   // if (!auth_id) throw "Auth error. No auth id !";
 

@@ -33,7 +33,7 @@ const userLogin = async (req: Request, res: Response) => {
   };
 
   const accessToken = jwt.sign(jwtpayLoad, process.env!.jwt_sceret!, {
-    expiresIn: "90seconds",
+    expiresIn: "90 days",
   });
 
   res.status(200).json({ message: "Users LogIn sucessfully", accessToken });
