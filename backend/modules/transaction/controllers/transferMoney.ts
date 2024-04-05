@@ -17,7 +17,8 @@ const transferMoney = async (req: any, res: any) => {
   const getFriend = await usersModel.findOne({
     email: friend_email,
   });
-  if (!getFriend) throw "Friend email is required";
+  if (!getFriend) throw "Friend email is not valid";
+  console.log(getFriend);
 
   const getOwnAccount = await usersModel.findOne({
     _id: req.user.user_id,
@@ -27,7 +28,7 @@ const transferMoney = async (req: any, res: any) => {
   if (getOwnAccount.balance < amount) throw "Insufficient Balance";
 
   const session = await mongoose.startSession();
-  await session.withTransaction(async (session) => {
+  await session.withTransaction(async (session: any) => {
     // Deducting money from sender account!
     await usersModel.updateOne(
       {
@@ -38,7 +39,10 @@ const transferMoney = async (req: any, res: any) => {
           balance: amount * -1,
         },
       }
-    );
+    ),
+      {
+        session,
+      };
 
     // Create own transaction log...
 
@@ -65,6 +69,9 @@ const transferMoney = async (req: any, res: any) => {
         $inc: {
           balance: amount,
         },
+      },
+      {
+        session,
       }
     );
 

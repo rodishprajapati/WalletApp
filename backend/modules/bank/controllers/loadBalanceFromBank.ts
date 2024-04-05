@@ -5,8 +5,9 @@ import transactionsModel from "../../../models/transcations.model";
 import usersModel from "../../../models/users.model";
 const loadBalanceFromBank = async (req: any, res: Response) => {
   const { bank_id, balance } = req.body;
-  //console.log(req.body);
+  // console.log(req.body);
 
+  //bank to wallet
   if (!bank_id) throw "Bank id is required!";
   if (!balance) throw "Balance is required!";
 

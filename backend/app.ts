@@ -7,6 +7,7 @@ import userRouter from "./modules/users/users.routes";
 import "./models";
 import errorHandlers from "./handlers/errorHandlers";
 import bankRouter from "./modules/bank/bank.routes";
+import fundTransfer from "./modules/transaction/transfer.routes";
 
 const app = express();
 app.use(cors());
@@ -17,6 +18,7 @@ mongoose.connect(process.env.mongo_connect!, {}).then(() => {
 
 app.use("/users", userRouter);
 app.use("/linkBankAccount", bankRouter);
+app.use("/transaction", fundTransfer);
 
 app.use(errorHandlers);
 

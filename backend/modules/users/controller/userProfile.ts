@@ -6,9 +6,9 @@ import usersModel from "../../../models/users.model";
 const userProfile = async (req: any, res: Response) => {
   // console.log(req.query);
   // const { email } = req.query;
-  console.log("data from data.headers.auth");
+  // console.log("data from data.headers.auth");
   // console.log(req.headers.authorization);
-  console.log(req.user.user_id);
+  // console.log(req.user.user_id);
 
   const userData = await usersModel.findOne({
     _id: req.user.user_id,

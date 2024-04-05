@@ -3,6 +3,7 @@ import Form from "antd/es/form/Form";
 import axios from "axios";
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+import "../global.css";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -23,65 +24,73 @@ const Login = () => {
 
   return (
     <>
-      <div className="bg-black-700 ">hello</div>
-      <div className="bg-red-800 p-10">
-        <Form
-          name="basic"
-          labelCol={{
-            span: 8,
-          }}
-          wrapperCol={{
-            span: 16,
-          }}
-          style={{
-            maxWidth: 600,
-          }}
-          initialValues={{
-            remember: true,
-          }}
-          onFinish={onFinish}
-          autoComplete="off"
-        >
-          <Form.Item
-            label="Email"
-            name="email"
-            rules={[
-              {
-                required: true,
-                message: "Please input your Email!",
-              },
-            ]}
-          >
-            <Input />
-          </Form.Item>
-
-          <Form.Item
-            label="Password"
-            name="password"
-            rules={[
-              {
-                required: true,
-                message: "Please input your password!",
-              },
-            ]}
-          >
-            <Input.Password />
-          </Form.Item>
-
-          <Form.Item
-            wrapperCol={{
-              offset: 8,
-              span: 16,
-            }}
-          >
-            <Button type="primary" htmlType="submit">
-              Login
-            </Button>
-          </Form.Item>
-        </Form>
-        <div>
-          Don't Have an Account? <br />
-          <Link to={"/signup"}>Create New Account</Link>
+      <div className="bg-blue-300 p-10 h-[100vh] flex flex-col ">
+        <div className="  bg-red-400 p-[0px] mt-[10vh] ml-[20%] w-[50vw] rounded-xl flex flex-col justify-center items-center float-right">
+          <div>
+            <br />
+            <h2 className="align">LogIn</h2>
+          </div>
+          <div className="">
+            <br />
+            <br />
+            <Form
+              className=" "
+              name="basic"
+              labelCol={{
+                span: 8,
+              }}
+              wrapperCol={{
+                span: 16,
+              }}
+              style={{
+                maxWidth: 600,
+              }}
+              initialValues={{
+                remember: true,
+              }}
+              onFinish={onFinish}
+              autoComplete="off"
+            >
+              <Form.Item
+                label="Email"
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your Email!",
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                label="Password"
+                name="password"
+                rules={[
+                  {
+                    required: true,
+                    message: "Please input your password!",
+                  },
+                ]}
+              >
+                <Input.Password />
+              </Form.Item>
+              <Form.Item
+                wrapperCol={{
+                  offset: 8,
+                  span: 16,
+                }}
+              >
+                <Button type="default" htmlType="submit">
+                  Login
+                </Button>
+              </Form.Item>
+            </Form>
+          </div>
+          <div className="pl-10">
+            Don't Have an Account? <br />
+            <Link to={"/signup"}>Create New Account</Link>
+          </div>
         </div>
       </div>
     </>

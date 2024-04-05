@@ -1,8 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import DashBoard from "./InsidePages/dashBoard";
 import SignUp from "./frontpage/SignUp";
 import Login from "./frontpage/login";
 import "./global.css";
+import Dashboard from "./InsidePages/dashBoard";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -20,7 +20,7 @@ const App = () => {
     },
     {
       path: "/dashboard",
-      element: <DashBoard />,
+      element: <Dashboard />,
     },
   ]);
   return (
